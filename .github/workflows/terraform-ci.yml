@@ -72,6 +72,8 @@ jobs:
           tflint_version: ${{ env.TFLINT_VERSION }}
 
       - name: TFLint
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: tflint --init && tflint --recursive
 
       - name: Checkov
