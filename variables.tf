@@ -17,5 +17,5 @@ variable "location" {
 variable "accountreplicationtype" {
 
   type = string
-  
+
 }
