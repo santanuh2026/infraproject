@@ -39,7 +39,7 @@ container_name       = "tfstate"
 - `terraform-ci.yml` runs on pull requests and main branch changes.
 - CI checks `terraform fmt`, `terraform init -backend=false`, `terraform validate`, TFLint, and Checkov.
 - Pull requests also run real environment plans using Azure credentials and remote state.
-- `terraform-cd.yml` deploys `dev` automatically on push to `main`.
+- `terraform-cd.yml` deploys `dev` automatically only after `Terraform CI` completes successfully on `main`.
 - Manual deployments can target `dev`, `stage`, or `prod` and can run either `apply` or `destroy`.
 
 ## Local Commands
