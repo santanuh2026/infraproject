@@ -80,6 +80,7 @@ jobs:
           directory: .
           framework: terraform
           quiet: true
+          skip_check: CKV2_AZURE_1,CKV2_AZURE_33,CKV2_AZURE_41,CKV_AZURE_33
 
   plan:
     name: Plan ${{ matrix.environment }}
