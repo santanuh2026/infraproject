@@ -84,6 +84,14 @@ jobs:
       #     quiet: true
       #     skip_check: CKV2_AZURE_1,CKV2_AZURE_33,CKV2_AZURE_41,CKV_AZURE_33
 
+      - name: Checkov
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: .
+          framework: terraform
+          quiet: true
+          skip_check: "CKV_AZURE_33,CKV_AZURE_206,CKV_AZURE_59,CKV2_AZURE_33,CKV2_AZURE_41,CKV2_AZURE_1,CKV2_AZURE_38,CKV2_AZURE_40"    
+
   plan:
     name: Plan ${{ matrix.environment }}
     runs-on: ubuntu-latest
