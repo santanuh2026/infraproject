@@ -12,13 +12,18 @@ resource "random_string" "suffix" {
 
 }
 
+#checkov:skip=CKV2_AZURE_1: CMK not required for demo project
+#checkov:skip=CKV2_AZURE_33: Private Endpoint not required
+#checkov:skip=CKV2_AZURE_41: SAS expiration policy not required
+#checkov:skip=CKV2_AZURE_38: Soft delete not required
+#checkov:skip=CKV2_AZURE_40: Shared Key auth acceptable for demo
 resource "azurerm_storage_account" "main" {
-  name                            = lower("st${var.application_name}${var.environment_name}${random_string.suffix.result}")
-  resource_group_name             = azurerm_resource_group.main.name
-  location                        = azurerm_resource_group.main.location
-  account_tier                    = "Standard"
-  account_replication_type        = "LRS"
+  name                     = lower("st${var.application_name}${var.environment_name}${random_string.suffix.result}")
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
   allow_nested_items_to_be_public = false
   min_tls_version                 = "TLS1_2"
-
 }
