@@ -27,3 +27,10 @@ resource "azurerm_storage_account" "main" {
   allow_nested_items_to_be_public = false
   min_tls_version                 = "TLS1_2"
 }
+
+resource "azurerm_virtual_network" "example" {
+  name                = "network-${var.application_name}-${var.environment_name}"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+  address_space       = ["10.0.0.0/16"]
+}
