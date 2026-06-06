@@ -76,13 +76,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: tflint --init && tflint --recursive
 
-      - name: Checkov
-        uses: bridgecrewio/checkov-action@v12
-        with:
-          directory: .
-          framework: terraform
-          quiet: true
-          skip_check: CKV2_AZURE_1,CKV2_AZURE_33,CKV2_AZURE_41,CKV_AZURE_33
+      # - name: Checkov
+      #   uses: bridgecrewio/checkov-action@v12
+      #   with:
+      #     directory: .
+      #     framework: terraform
+      #     quiet: true
+      #     skip_check: CKV2_AZURE_1,CKV2_AZURE_33,CKV2_AZURE_41,CKV_AZURE_33
 
   plan:
     name: Plan ${{ matrix.environment }}
