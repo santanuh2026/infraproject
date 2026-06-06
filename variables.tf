@@ -13,3 +13,9 @@ variable "location" {
   type = string
 
 }
+
+variable "accountreplicationtype" {
+
+  type = string
+  
+}
